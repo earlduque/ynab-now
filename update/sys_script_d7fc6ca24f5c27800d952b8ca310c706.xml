@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>false</action_insert>
+        <action_query>false</action_query>
+        <action_update>true</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>x_165574_ynab_now_ynab_now_rest_calls</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition table="x_165574_ynab_now_ynab_now_rest_calls">type=Get Categories^status=200^responseISNOTEMPTY^EQ<item endquery="false" field="type" goto="false" newquery="false" operator="=" or="false" value="Get Categories"/>
+            <item endquery="false" field="status" goto="false" newquery="false" operator="=" or="false" value="200"/>
+            <item endquery="false" field="response" goto="false" newquery="false" operator="ISNOTEMPTY" or="false" value=""/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </filter_condition>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>Record Category Groups and Categories</name>
+        <order>100</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
+
+	var responsebody = JSON.parse(current.response);
+
+	for (var i = 0; i < responsebody.data.category_groups.length; i++){
+		var gr = new GlideRecord('x_165574_ynab_now_ynab_now_category_groups');
+		gr.addQuery('id', responsebody.data.category_groups[i].id);
+		gr.query();
+		if(gr.next()){
+			gr.name = responsebody.data.category_groups[i].name;
+			gr.hidden = responsebody.data.category_groups[i].hidden;
+			gr.deleted = responsebody.data.category_groups[i].deleted;
+			gr.update();
+		} else {
+			gr.initialize();
+			gr.id = responsebody.data.category_groups[i].id;
+			gr.name = responsebody.data.category_groups[i].name;
+			gr.hidden = responsebody.data.category_groups[i].hidden;
+			gr.deleted = responsebody.data.category_groups[i].deleted;
+			gr.insert();
+		}
+		if (responsebody.data.category_groups[i].categories.length > 0) {
+			for (var j = 0; j < responsebody.data.category_groups[i].categories.length; j++){
+				var gr2 = new GlideRecord('x_165574_ynab_now_ynab_now_categories');
+				gr2.addQuery('id', responsebody.data.category_groups[i].categories[j].id);
+				gr2.query();
+				if(gr2.next()){
+					gr2.name = responsebody.data.category_groups[i].categories[j].name;
+					gr2.hidden = responsebody.data.category_groups[i].categories[j].hidden;
+					gr2.note = responsebody.data.category_groups[i].categories[j].note;
+					gr2.budgeted = responsebody.data.category_groups[i].categories[j].budgeted/1000;
+					gr2.original_category_group_id = responsebody.data.category_groups[i].categories[j].original_category_group_id;
+					gr2.activity = responsebody.data.category_groups[i].categories[j].activity/1000;
+					gr2.balance = responsebody.data.category_groups[i].categories[j].balance/1000;
+					gr2.goal_type = responsebody.data.category_groups[i].categories[j].goal_type;
+					gr2.goal_creation_month = responsebody.data.category_groups[i].categories[j].goal_creation_month;
+					gr2.goal_target = responsebody.data.category_groups[i].categories[j].goal_target/1000;
+					gr2.goal_target_month = responsebody.data.category_groups[i].categories[j].goal_target_month;
+					gr2.goal_percentage_complete = responsebody.data.category_groups[i].categories[j].goal_percentage_complete;
+					gr2.deleted = responsebody.data.category_groups[i].categories[j].deleted;
+					gr2.category_group_id = gr.sys_id;
+					gr2.update();
+				} else {
+					gr2.initialize();
+					gr2.id = responsebody.data.category_groups[i].categories[j].id;
+					gr2.name = responsebody.data.category_groups[i].categories[j].name;
+					gr2.hidden = responsebody.data.category_groups[i].categories[j].hidden;
+					gr2.note = responsebody.data.category_groups[i].categories[j].note;
+					gr2.budgeted = responsebody.data.category_groups[i].categories[j].budgeted/1000;
+					gr2.original_category_group_id = responsebody.data.category_groups[i].categories[j].original_category_group_id;
+					gr2.activity = responsebody.data.category_groups[i].categories[j].activity/1000;
+					gr2.balance = responsebody.data.category_groups[i].categories[j].balance/1000;
+					gr2.goal_type = responsebody.data.category_groups[i].categories[j].goal_type;
+					gr2.goal_creation_month = responsebody.data.category_groups[i].categories[j].goal_creation_month;
+					gr2.goal_target = responsebody.data.category_groups[i].categories[j].goal_target/1000;
+					gr2.goal_target_month = responsebody.data.category_groups[i].categories[j].goal_target_month;
+					gr2.goal_percentage_complete = responsebody.data.category_groups[i].categories[j].goal_percentage_complete;
+					gr2.deleted = responsebody.data.category_groups[i].categories[j].deleted;
+					gr2.category_group_id = gr.sys_id;
+					gr2.insert();
+				}
+			}
+		}
+	}
+
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>admin-eduque</sys_created_by>
+        <sys_created_on>2018-09-05 02:33:13</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>d7fc6ca24f5c27800d952b8ca310c706</sys_id>
+        <sys_mod_count>13</sys_mod_count>
+        <sys_name>Record Category Groups and Categories</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="YNAB NOW" source="x_165574_ynab_now">0c8032d64fd427800d952b8ca310c7c6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="YNAB NOW">0c8032d64fd427800d952b8ca310c7c6</sys_scope>
+        <sys_update_name>sys_script_d7fc6ca24f5c27800d952b8ca310c706</sys_update_name>
+        <sys_updated_by>admin-eduque</sys_updated_by>
+        <sys_updated_on>2018-09-05 03:29:55</sys_updated_on>
+        <template/>
+        <when>after</when>
+    </sys_script>
+    <sys_translated_text action="delete_multiple" query="documentkey=d7fc6ca24f5c27800d952b8ca310c706"/>
+</record_update>

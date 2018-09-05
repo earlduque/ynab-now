@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_properties">
+    <sys_properties action="INSERT_OR_UPDATE">
+        <choices/>
+        <description>Personal Access Token from YNAB Developer Settings</description>
+        <ignore_cache>false</ignore_cache>
+        <is_private>true</is_private>
+        <name>x_165574_ynab_now.personal.access.token</name>
+        <read_roles>admin</read_roles>
+        <suffix>personal.access.token</suffix>
+        <sys_class_name>sys_properties</sys_class_name>
+        <sys_created_by>admin-eduque</sys_created_by>
+        <sys_created_on>2018-09-04 22:44:06</sys_created_on>
+        <sys_id>6a68bfd24fd827800d952b8ca310c767</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_165574_ynab_now.personal.access.token</sys_name>
+        <sys_package display_value="YNAB NOW" source="x_165574_ynab_now">0c8032d64fd427800d952b8ca310c7c6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="YNAB NOW">0c8032d64fd427800d952b8ca310c7c6</sys_scope>
+        <sys_update_name>sys_properties_6a68bfd24fd827800d952b8ca310c767</sys_update_name>
+        <sys_updated_by>admin-eduque</sys_updated_by>
+        <sys_updated_on>2018-09-04 22:44:06</sys_updated_on>
+        <type>string</type>
+        <value>8beed5c1e0216f0e00446f4dedf9ee8e9c878d75df5dea78e670e1e66ccd8613</value>
+        <write_roles>admin</write_roles>
+    </sys_properties>
+    <sys_translated_text action="delete_multiple" query="documentkey=6a68bfd24fd827800d952b8ca310c767"/>
+</record_update>

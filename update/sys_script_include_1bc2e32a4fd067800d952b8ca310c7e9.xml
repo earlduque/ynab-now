@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_165574_ynab_now.ynab_ajax</api_name>
+        <client_callable>true</client_callable>
+        <description/>
+        <name>ynab_ajax</name>
+        <script><![CDATA[var ynab_ajax = Class.create();
+ynab_ajax.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+	update_categories: function () {
+		var budget_id = this.getParameter('sysparm_id');
+
+		var gr = new GlideRecord('x_165574_ynab_now_ynab_now_rest_calls');
+		gr.initialize();
+		gr.type = 'Get Categories';
+		gr.value_to_pass = budget_id;
+		if (gr.insert()){
+			var results = {
+				"message": "Categories are now being updated."
+			};
+			return JSON.stringify(results);
+		} else {
+			var results = {
+				"message": "Request for categories was not created."
+			};
+			return JSON.stringify(results);
+		}
+	},
+	type: 'ynab_ajax'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin-eduque</sys_created_by>
+        <sys_created_on>2018-09-05 15:52:00</sys_created_on>
+        <sys_id>1bc2e32a4fd067800d952b8ca310c7e9</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>ynab_ajax</sys_name>
+        <sys_package display_value="YNAB NOW" source="x_165574_ynab_now">0c8032d64fd427800d952b8ca310c7c6</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="YNAB NOW">0c8032d64fd427800d952b8ca310c7c6</sys_scope>
+        <sys_update_name>sys_script_include_1bc2e32a4fd067800d952b8ca310c7e9</sys_update_name>
+        <sys_updated_by>admin-eduque</sys_updated_by>
+        <sys_updated_on>2018-09-05 15:53:45</sys_updated_on>
+    </sys_script_include>
+</record_update>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_properties_category_m2m">
+    <sys_properties_category_m2m action="INSERT_OR_UPDATE">
+        <category display_value="YNAB Now">859873164fd827800d952b8ca310c7f7</category>
+        <order>1</order>
+        <property display_value="x_165574_ynab_now.personal.access.token" name="x_165574_ynab_now.personal.access.token">6a68bfd24fd827800d952b8ca310c767</property>
+        <sys_class_name>sys_properties_category_m2m</sys_class_name>
+        <sys_created_by>admin-eduque</sys_created_by>
+        <sys_created_on>2018-09-04 22:44:19</sys_created_on>
+        <sys_id>9298b3164fd827800d952b8ca310c748</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_165574_ynab_now.personal.access.token.YNAB Now</sys_name>
+        <sys_package display_value="YNAB NOW" source="x_165574_ynab_now">0c8032d64fd427800d952b8ca310c7c6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="YNAB NOW">0c8032d64fd427800d952b8ca310c7c6</sys_scope>
+        <sys_update_name>sys_properties_category_m2m_9298b3164fd827800d952b8ca310c748</sys_update_name>
+        <sys_updated_by>admin-eduque</sys_updated_by>
+        <sys_updated_on>2018-09-04 22:44:19</sys_updated_on>
+    </sys_properties_category_m2m>
+</record_update>

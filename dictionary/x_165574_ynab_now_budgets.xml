@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
-    <element label="Ynab Now Budgets" max_length="40" name="x_165574_ynab_now_budgets" type="collection">
+    <element label="YNAB Now Budgets" max_length="40" name="x_165574_ynab_now_budgets" type="collection">
+        <element label="First month" max_length="40" name="first_month" type="glide_date"/>
+        <element attributes="edge_encryption_enabled=true" label="ID" max_length="400" name="id" type="string"/>
+        <element label="Last Modified On" max_length="40" name="last_modified_on" type="glide_date_time"/>
+        <element label="Last month" max_length="40" name="last_month" type="glide_date"/>
+        <element attributes="edge_encryption_enabled=true" label="Name" max_length="400" name="name" type="string"/>
         <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
     </element>
 </database>

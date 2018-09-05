@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="YNAB Now Categories" max_length="40" name="x_165574_ynab_now_ynab_now_categories" type="collection">
+        <element label="Activity" max_length="40" name="activity" type="currency"/>
+        <element label="Balance" max_length="40" name="balance" type="currency"/>
+        <element label="Budgeted" max_length="40" name="budgeted" type="currency"/>
+        <element label="Category Group ID" max_length="32" name="category_group_id" reference="x_165574_ynab_now_ynab_now_category_groups" type="reference"/>
+        <element label="Deleted" max_length="40" name="deleted" type="boolean"/>
+        <element label="Goal Creation Month" max_length="40" name="goal_creation_month" type="glide_date"/>
+        <element label="Goal Percentage Complete" max_length="40" name="goal_percentage_complete" type="integer"/>
+        <element label="Goal Target" max_length="40" name="goal_target" type="currency"/>
+        <element label="Goal Target Month" max_length="40" name="goal_target_month" type="glide_date"/>
+        <element label="Goal Type" max_length="40" name="goal_type" type="string"/>
+        <element label="Hidden" max_length="40" name="hidden" type="boolean"/>
+        <element label="ID" max_length="40" name="id" type="string"/>
+        <element display="true" label="Name" max_length="40" name="name" type="string"/>
+        <element label="Note" max_length="4000" name="note" type="string"/>
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <element label="Original Category Group ID" max_length="40" name="original_category_group_id" type="string"/>
+        <index name="index">
+            <element name="category_group_id"/>
+        </index>
+    </element>
+</database>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="YNAB Now REST Calls" max_length="40" name="x_165574_ynab_now_ynab_now_rest_calls" type="collection">
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Request" max_length="40000" name="request" type="string"/>
+        <element label="Response" max_length="40000" name="response" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Status" max_length="400" name="status" type="string"/>
+        <element choice="1" label="Type" max_length="40" name="type" type="choice">
+            <choice>
+                <element label="Get Budgets" sequence="0" value="Get Budgets"/>
+                <element label="Get Categories" sequence="1" value="Get Categories"/>
+            </choice>
+        </element>
+        <element label="Value to pass" max_length="40" name="value_to_pass" type="string"/>
+    </element>
+</database>
